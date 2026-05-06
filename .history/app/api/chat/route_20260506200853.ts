@@ -1,4 +1,4 @@
-import { createOpenAI } from "@ai-sdk/openai";
+import { openrouter } from "@ai-sdk/openrouter";
 import { frontendTools } from "@assistant-ui/react-ai-sdk";
 import {
   type JSONSchema7,
@@ -6,11 +6,6 @@ import {
   convertToModelMessages,
   type UIMessage,
 } from "ai";
-
-const openrouter = createOpenAI({
-  baseURL: "https://openrouter.ai/api/v1",
-  apiKey: process.env.OPENROUTER_API_KEY,
-});
 
 export async function POST(req: Request) {
   const {
@@ -24,7 +19,7 @@ export async function POST(req: Request) {
   } = await req.json();
 
   const result = streamText({
-    model: openrouter("google/gemma-4-31b-it"),
+    model: openrouter("gpt-5-nano"),
     messages: await convertToModelMessages(messages),
     system,
     tools: {
