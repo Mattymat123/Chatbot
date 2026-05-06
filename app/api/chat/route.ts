@@ -24,7 +24,7 @@ export async function POST(req: Request) {
   } = await req.json();
 
   const result = streamText({
-    model: openrouter("google/gemma-4-31b-it"),
+    model: openrouter.chat("google/gemma-4-31b-it"),
     messages: await convertToModelMessages(messages),
     system,
     tools: {
