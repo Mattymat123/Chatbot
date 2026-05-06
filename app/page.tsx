@@ -1,5 +1,5 @@
-import { Assistant } from "./assistant";
+import { AssistantModalProvider } from "./assistant-modal-provider";
 
 export default function Home() {
-  return <Assistant />;
+  return <AssistantModalProvider />;
 }
